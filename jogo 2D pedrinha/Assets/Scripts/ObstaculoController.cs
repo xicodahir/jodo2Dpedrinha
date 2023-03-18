@@ -7,6 +7,8 @@ public class ObstaculoController : MonoBehaviour
     private Rigidbody2D ObstaculoRB;
 
     private GameController _GameController;
+
+    private CameraShaker _cameraShaker;
     
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,8 @@ public class ObstaculoController : MonoBehaviour
 
 
         _GameController = FindObjectOfType(typeof(GameController)) as GameController;  //encontrar objeto do TIPO (tipe off) tudo sera colocado dentro da variavel 
+
+        _cameraShaker = FindObjectOfType(typeof(CameraShaker)) as CameraShaker;
     }
 
     // Update is called once per frame
@@ -34,6 +38,8 @@ public class ObstaculoController : MonoBehaviour
         if(collision.tag == "Player")  //tag é uma etique ou rotulo que estou fazendo uma colisão com um objeto
         {
             Debug.Log("Tocou no OBSTACULO!!");
+            
+            _cameraShaker.ShakeIt(); //AQUI VOU CHAMAR O TREMOR da tela quando colidir o player com o obstaculo
         }
     }
 
