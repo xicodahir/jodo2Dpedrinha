@@ -7,7 +7,7 @@ public class CameraShaker : MonoBehaviour
 
 
     [Header ("Camera Shaker Config")]
-    Vector3 cameraInitialPosition; //posição inicial da CAMERA
+    private Vector3 cameraInitialPosition; //posição inicial da CAMERA
     public float shakeMagnitude = 0.05f; //valor da energia emitida PARA TREMER A TELA, camera vai balançar
     public float shakeTime = 0.05f;
     public Camera mainCamera;
@@ -19,7 +19,7 @@ public class CameraShaker : MonoBehaviour
         Invoke("StopCameraShaking", shakeTime); //vou parar o TREMOR da camera
     }
 
-    void StartCameraShake() //sao privativas NAO SERA CHAMADAS EM OUTROS SCRITP
+    void StartCameraShaking() //sao privativas NAO SERA CHAMADAS EM OUTROS SCRITP
     {
         float cameraShakingOffsetX = Random.value * shakeMagnitude * 2 - shakeMagnitude; //RANDOM VALUE valor aleatorio 
         float cameraShakingOffsetY = Random.value * shakeMagnitude * 2 - shakeMagnitude;
