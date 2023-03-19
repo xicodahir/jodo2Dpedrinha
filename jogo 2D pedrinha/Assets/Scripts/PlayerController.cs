@@ -16,10 +16,15 @@ public class PlayerController : MonoBehaviour
     public LayerMask LayerGround;
     public Transform checkGround;
     public string isGroundBool = "eChao";
+
+    private GameController _gameController;
     void Start()
     {
         rig = GetComponent<Rigidbody2D>(); // GETCOMPONENT serve para PEGAR TODAS AS PROPRIEDADES DO COMPONENTE NO CASO RIGIDBODY2D
         anim = GetComponent<Animator>();
+
+        _gameController = FindObjectOfType(typeof(GameController)) as GameController;
+
 
         MovimentaPlayer();
     }
@@ -58,6 +63,8 @@ public class PlayerController : MonoBehaviour
     {
         if(isGrounded) //se for verdadeiro
         {
+            _gameController._fxGame.PlayOneShot(_gameController._fxJump);
+
             rig.velocity = Vector2.zero; // vou falar que a velocidade do rigidbody e zero
             rig.AddForce(new Vector2(0, jumpForce)); // valor de 650f 
         }

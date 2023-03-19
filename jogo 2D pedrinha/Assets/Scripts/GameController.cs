@@ -34,6 +34,12 @@ public class GameController : MonoBehaviour
      [Header("Controle de Distancia")]
      public int   _metrosPercorridos = 0;
 
+     [Header("Sons e EFeitos")]
+     public AudioSource _fxGame;
+     public AudioClip _fxMoedaColetada;
+     public AudioClip _fxJump;
+     
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +64,8 @@ public class GameController : MonoBehaviour
 
     GameObject ObjetoObstaculoTemp = Instantiate(_ObstaculoPrefab); //vou colar um nome para minha INSTANCIA vai contar o objeto instanciado
     StartCoroutine("SpawnObstaculo"); //serve para EXECUTAR a COROUTINA e vai CHAMAR da função START
+
+    yield return new WaitForSeconds(1.5f);
 
     StartCoroutine("SpawnCoin");
   }  

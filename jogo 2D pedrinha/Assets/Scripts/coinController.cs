@@ -28,6 +28,8 @@ public class coinController : MonoBehaviour
         if(collision.tag == "Player")
         {
             _gameController.Pontos(1);
+
+            _gameController._fxGame.PlayOneShot(_gameController._fxMoedaColetada);
             Debug.Log("Pegou a moeda!!");
             Destroy(this.gameObject);
         }
