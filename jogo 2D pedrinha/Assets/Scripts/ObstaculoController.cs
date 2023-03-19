@@ -37,9 +37,23 @@ public class ObstaculoController : MonoBehaviour
     {
         if(collision.tag == "Player")  //tag é uma etique ou rotulo que estou fazendo uma colisão com um objeto
         {
-            Debug.Log("Tocou no OBSTACULO!!");
+            _GameController._vidasPlayer--; // _GameController._vidasPlayer = _GamesCon _vidasplayer -1 serve para simplificar
+            if(_GameController._vidasPlayer <=0)
+            {
+                Debug.Log("Fim do jogo");
+                _GameController._txtVidas.text = "0";
+            }
+            else
+            {
+                _GameController._txtVidas.text = _GameController._vidasPlayer.ToString();
+                 
+                 
+                 Debug.Log("Tocou no OBSTACULO!!");
             
-            _cameraShaker.ShakeIt(); //AQUI VOU CHAMAR O TREMOR da tela quando colidir o player com o obstaculo
+                 _cameraShaker.ShakeIt(); //AQUI VOU CHAMAR O TREMOR da tela quando colidir o player com o obstaculo
+            }
+
+           
         }
     }
 
